@@ -138,24 +138,12 @@ async function load() {
     
 
 
-
-
-
-
-
-
-
-
 ///////////  FONCTION QUI RETOURNE LE TABLEAU WORKS  ///////////////
 
 async function getWorks(){                                                 //fonction asynchrone
     const response = await fetch("http://localhost:5678/api/works");       //attendre que la promesse retournée par la fonction fetch() soit résolue //fetch() est utilisée pour envoyer une requête HTTP GET à l'URL spécifiée, pour récupérer des données.
    return await response.json();                                            //  retourne les données récupérées sous forme de JSON
 }
-
-
-
-
 
 ////////////////// AFFICHAGE DES WORKS DANS LE DOM ///////////////
 
@@ -218,9 +206,9 @@ async function displayCategorysButtons(){                   // fonction pour ger
         filters.appendChild(btn);                          // 6 Ajoute l'élément "button"/btn en tant qu'enfant de l'élément dans le document HTML qui a la classe "filters".
 });
 
-// Ajout manuel du bouton "Tous" avec l'ID 0
-const btnTous = document.getElementById("0");
-btnTous.classList.add("special-color");
+        // Ajout manuel du bouton "Tous" avec l'ID 0
+        const btnTous = document.getElementById("0");
+        btnTous.classList.add("special-color");
 
 
 }
@@ -261,65 +249,11 @@ async function filterCategory() {
 
         });
     });
-
-
     console.log(buttons);
-    
 }
 
 
 
-const ButtonTous = document.getElementById("button #0")
-
-function btnTous() {////////////////////////////////////////////////////////////////////
-   
-    previewImage.style.backGroundColor = "#306685"; // Masquer l'image de prévisualisation
-    previewImage.style.Color = "#CBD6DC"; // Masquer l'image de prévisualisation
-    
-   
-}
-  
-
-    /////// MODAL ///////
-
-
-    function DisplayAddModal() {
-        btnAddModal.addEventListener("click",()=>{
-            modalAddworks.style.display = "flex"
-            modalContent.style.display = "none"
-        })
-        arrowLeft.addEventListener("click",()=>{
-            modalAddworks.style.display = "none"
-            modalContent.style.display = "flex"
-        })
-
-        xmarkAddModal.addEventListener("click",()=>{
-            containerModals.style.display = "none"
-            
-        })
- 
-}
-
-
-
-// lite de catégories dans l'input select
-async function displayCategoryModal() {
-    const select = document.querySelector(".modalAddWorks select")   // utilise document.querySelector pour sélectionner l'élément <select> à l'intérieur d'un élément avec la classe modalAddWorks et le stocke dans la constante select.
-                                                                      // attend la résolution de la promesse retournée par la fonction getCategorys (qui est supposée retourner une liste de catégories) et stocke le résultat dans la constante categorys.
-       categorys.forEach(category => {                                 //  Pour chaque catégorie dans la liste categorys, exécute la fonction suivante.
-        const option = document.createElement("option")            // Crée un nouvel élément <option>.  
-        option.value = category.id                            // Définit l'attribut value de l'option à l'ID de la catégorie.
-        option.textContent = category.name                  //Définit le texte affiché de l'option au nom de la catégorie.       
-        select.appendChild(option)                           // Ajoute l'élément <option> à l'élément <select>
-       }) 
-}
-
-function spanSuccessWork(){
-    const spanSuccess = document.createElement("span");
-    spanSuccess.innerHTML = "Le travail a été ajouté avec succès.";
-    modalAddworks.insertBefore(spanSuccess, form)
-
-}
 
 
 
