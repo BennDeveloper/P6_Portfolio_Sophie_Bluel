@@ -62,7 +62,6 @@ inputTitle.addEventListener('input', () => {   // Ajoute un écouteur d'événem
 
 
 
-
     /////////////// ecouter le changement sur l'input file ///////////////
 
 inputFile.addEventListener("change", () => {   //evenement change attaché a l'element inputFile événement elle se déclenche lorsque la valeur de l'élément input change, c'est-à-dire lorsqu'un fichier est sélectionné par l'utilisateur.
@@ -96,7 +95,7 @@ function resetContainerFile() {
 
 
 
-    ///////////////////post works///////////////
+      ///////////////////post works///////////////
 
 
 form.addEventListener("submit", async (e) => {           // écouteur d'événements sur le formulaire (form) . 

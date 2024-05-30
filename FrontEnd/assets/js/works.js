@@ -92,7 +92,7 @@ async function load() {
       /* Affichage et gestion de la galerie d'images dans la modale 1 */
     async function displayWorkModal() {
        
-
+        works = await getWorks();     
         modalWorks.innerHTML = "";
         
         works.forEach(projet => {
