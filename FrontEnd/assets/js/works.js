@@ -89,58 +89,7 @@ async function load() {
         })
     }
 
-      /* Affichage et gestion de la galerie d'images dans la modale 1 */
-    async function displayWorkModal() {
-       
-        works = await getWorks();     
-        modalWorks.innerHTML = "";
-        
-        works.forEach(projet => {
-            const figure = document.createElement("figure");
-            const img = document.createElement("img");
-            const span = document.createElement("span");
-            const trash = document.createElement("i");
-            trash.classList.add("fa-solid", "fa-trash-can");
-            trash.id = projet.id;
-
-            /* Ajoute un gestionnaire d'événements au clic sur l'icône de corbeille */
-            trash.addEventListener("click", () =>  {
-                console.log("click");
-                /* Récupèration du token d'authentification depuis la sessionStorage */
-                const token = localStorage.getItem("token");
-                /* Envoie une requête DELETE au serveur pour supprimer le projet */
-                fetch(`http://localhost:5678/api/works/${projet.id}`, {
-                    method: "DELETE",
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                })
-                .then (res => {
-                    console.log(res)
-                    /* Suppression d'image dans la galerie */
-                    figure.remove();
-                    /* Suppression de l'image dans la page d'accueil */
-                    document.querySelector("figure[data-id='"+projet.id+"']").remove();
-                    /* Actualisation de la galerie d'image */
-                    
-                })
-                .catch (error => {
-                    console.error(error)
-                })
-            })
-
-            img.src = projet.imageUrl;
-            span.appendChild(trash);
-            figure.appendChild(span);
-            figure.appendChild(img);
-            modalWorks.appendChild(figure);
-        });
-    }
-    
-
-
-
-
+      
 ///////////  FONCTION QUI RETOURNE LE TABLEAU WORKS  ///////////////
 
 async function getWorks(){                                                 //fonction asynchrone
