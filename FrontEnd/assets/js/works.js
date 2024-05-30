@@ -1,3 +1,9 @@
+
+
+
+
+
+
 async function load() {
 
         await displayWorks();
@@ -21,7 +27,6 @@ async function load() {
             
             displayFilter.style.display = "none";
     
-            
              // création de l'entête
             const enTete = document.createElement("div");
             enTete.classList.add("en-tete");                // Ajout de la classe "en-tete" pour styliser avec CSS
@@ -42,15 +47,11 @@ async function load() {
             // Ajout du titre à l'en-tête
              enTete.appendChild(titreEnTete);
     
-    
             // ajout btn modifier
             modifier.textContent = "modifier"
             const iconeEdition = document.createElement("i");
             iconeEdition.classList.add("fa-regular", "fa-pen-to-square");
             modifier.appendChild(iconeEdition);
-    
-    
-    
     
             // au click du lien on supprime le token
             logout.addEventListener("click", () => {
@@ -138,12 +139,19 @@ async function load() {
     
 
 
+
+
 ///////////  FONCTION QUI RETOURNE LE TABLEAU WORKS  ///////////////
 
 async function getWorks(){                                                 //fonction asynchrone
     const response = await fetch("http://localhost:5678/api/works");       //attendre que la promesse retournée par la fonction fetch() soit résolue //fetch() est utilisée pour envoyer une requête HTTP GET à l'URL spécifiée, pour récupérer des données.
    return await response.json();                                            //  retourne les données récupérées sous forme de JSON
 }
+
+
+
+
+
 
 ////////////////// AFFICHAGE DES WORKS DANS LE DOM ///////////////
 
@@ -176,6 +184,9 @@ function createWorks(work){                                         /// 1 créer
 
         divGallery.appendChild(figureWork);                      // <figure> enfant de l'élément divGallery ou la calss ".gallery"
     }
+
+
+    
         
 ///////////  RECUP LE TABLEAU DES CATIGORIES ///////////
 
@@ -210,8 +221,9 @@ async function displayCategorysButtons(){                   // fonction pour ger
         const btnTous = document.getElementById("0");
         btnTous.classList.add("special-color");
 
-
 }
+
+
 
 
 /////////// FILTRIE AU CLICK ///////////////
